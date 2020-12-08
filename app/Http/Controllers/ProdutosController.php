@@ -37,7 +37,8 @@ class ProdutosController extends Controller
     }
 
     public function find(Request $request){
+        $nome = $request->get('nome');
         $produtos = Produto::where('nompro','LIKE','%'.$request->get("nome").'%')->get();
-        return view("produtos.search", compact('produtos'));
+        return view("produtos.search", compact('produtos', 'nome'));
     }
 }

@@ -5,7 +5,10 @@
 @section('conteudo')
     <div class="row">
         <div class="col-md-12">
- 
+            @if (count($produtos) == 0)
+                <h3 class="title">Nenhum busca encontrada para {{ $nome }}</h3>
+            @else
+            <h3>Busca por {{ $nome }}</h3>   
             <table class="table table-dark">
                 <thead>
                     <tr>
@@ -37,7 +40,7 @@
                         </th>
                     </tr>
                 @endforeach 
-
+                @endif
                 </tbody>
             </table>
         </div>
