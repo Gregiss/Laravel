@@ -14,7 +14,7 @@
                         <th scope="col">Código</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Estoque</th>
-                        <th scope="col">Deletar</th>
+                        <th scope="col">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
