@@ -54,6 +54,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('lista-produtos') }}">Home <span class="sr-only">(current)</span></a>
       </li>
+      <div class="nav-item active">
+      <a class="nav-link" href="{{ route('adicionar-produtos') }}">Adicionar produtos  <span class="sr-only">(current)</span></a>
+      </div>
       <!-- <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>

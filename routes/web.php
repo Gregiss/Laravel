@@ -20,3 +20,5 @@ Route::get('/', $dir.'ProdutosController@index')->name('lista-produtos');
 Route::get('/produtos/add', $dir.'ProdutosController@add')->name('adicionar-produtos');
 
 Route::post('/produtos/store', $dir.'ProdutosController@store')->name('salvar-produto');
+
+Route::post('/produtos/delete', $dir.'ProdutosController@destroy')->name('elimar-produto');
