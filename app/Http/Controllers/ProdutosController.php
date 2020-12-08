@@ -35,4 +35,9 @@ class ProdutosController extends Controller
         $produto->delete();
         return redirect()->route('lista-produtos');
     }
+
+    public function find(Request $request){
+        $produtos = Produto::where('nompro','LIKE','%'.$request->get("nome").'%')->get();
+        return view("produtos.search", compact('produtos'));
+    }
 }
