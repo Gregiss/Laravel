@@ -1,6 +1,6 @@
 @extends('layouts.padrao')
 
-@section('titulo', 'Lista de produtos')
+@section('titulo', 'Pesquisa')
 
 @section('conteudo')
     <div class="row">
@@ -8,14 +8,20 @@
             @if (count($produtos) == 0)
                 <h3 class="title">Nenhum busca encontrada para {{ $nome }}</h3>
             @else
-            <h3>Busca por {{ $nome }}</h3>   
-            <table class="table table-dark">
+            @if ($nome == '')
+            <h3>Todos os produtos disponiveis</h3>
+            @else
+            <h3>Busca por {{ $nome }}</h3>  
+            @endif
+            <br>
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Código</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Estoque</th>
-                        <th scope="col">Opções</th>
+                        <th scope="col">Deletar</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,8 +41,14 @@
                             action="{{ route('search-produto') }}">
                             @csrf
                             <input type="hidden" name="codpro" value="{{ $produto->codpro }}"/>
-                            <button class="btn btn-primary">Deletar</button>
-                            </form>
+                            <button class="btn btn-danger">Deletar</button>
+                            </form>  
+                        </th>
+                        <th>
+                        <a class="left"
+                        href="{{ route('editar-produto') }}?id={{ $produto->codpro  }}">
+                            <button class="btn btn-primary">Editar</button>
+                        </a>
                         </th>
                     </tr>
                 @endforeach 

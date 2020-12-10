@@ -8,13 +8,14 @@
             @if (count($produtos) == 0)
                 <h3 class="title">Nenhum produto adicionado</h3>
             @else
-            <table class="table table-dark">
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Código</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Estoque</th>
-                        <th scope="col">Opções</th>
+                        <th scope="col">Deletar</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,8 +35,13 @@
                             action="{{ route('elimar-produto') }}">
                             @csrf
                             <input type="hidden" name="codpro" value="{{ $produto->codpro }}"/>
-                            <button class="btn btn-primary">Deletar</button>
+                            <button class="btn btn-danger">Deletar</button>     
                             </form>
+                        </th>
+                        <th>
+                        <a class="left" href="{{ route('editar-produto') }}?id={{ $produto->codpro  }}">
+                            <button class="btn btn-primary">Editar</button>
+                        </a>
                         </th>
                     </tr>
                 @endforeach 
